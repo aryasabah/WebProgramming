@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jQuery Example</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <style> 
+    #panel, #flip {
+      padding: 5px;
+      text-align: center;
+      background-color: #e5eecc;
+      border: solid 1px #c3c3c3;
+    }
+    
+    #panel {
+      padding: 50px;
+      display: none;
+    }
+    </style>
+</head>
+<body>
+  <h1>Hello, World!</h1>
+  <p>This is a paragraph.</p>
+  <label>Username</label>
+  • <input type="text" id="username" class="form-control" value="Web Programming">
+  • <label>Email</label>
+  • <input type="email" id="email" class="form-control">
+  • <p id="showvalue"></p>
+  • <button id="btn3" class="btn btn-info"> Show Value</button>
+  <div id="flip">Click to slide down panel</div>
+<div id="panel">Hello world!</div>
+<label for="username">Username:</label>
+  <input type="text" id="username">
+
+  <label for="email">Email:</label>
+  <input type="email" id="email">
+<br>
+<br>
+<p id="test">This is a <b>paragraph</b></p>
+<button id="btn5" class="btn btn-info"> Show text</button>
+<button id="btn4" class="btn btn-info"> Show html</button>
+
+  <script>
+    // jQuery code
+    $(document).ready(function() {
+      // Manipulate the DOM using jQuery
+      $('h1').css('color', 'blue');
+      $("p").click(function(){
+$(this).hide();
+});
+$("#btn3").click(function(){
+var username = $('#username').val();
+var show = $('#email').val();
+$('#showvalue').html(username);
+$('#email').val(username);
+});
+$("#flip").click(function(){
+    $("#panel").slideDown("slow");
+  });
+  $("input").focus(function(){
+$(this).css("background-color",
+
+"yellow");
+
+});
+$("#btn5").click(function(){
+alert("Text: " + $("#test").text());
+});
+$("#btn4").click(function(){
+alert("HTML: " + $("#test").html());
+});
+
+$("input").blur(function(){
+$(this).css("background-color", "green");
+});
+    });
+  </script>
+</body>
+</html>
