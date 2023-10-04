@@ -19,6 +19,16 @@
     </style>
 </head>
 <body>
+  <select name="courses" id="courses" class="form-control w-25">
+    <option value="all">all</option>
+    <option value="bus">business</option>
+    <option value="computer">computer</option>
+  </select>
+  <br>
+  <div class="row">
+    <div id="bus-1" class="col col-3 p-5 bg-primary border border-danger fs-3">business</div>
+    <div id="cp" class="col col-3 p-5 bg-secondary border border-primary fs-3">computer</div>
+  </div>
   <h1>Hello, World!</h1>
   <p>This is a paragraph.</p>
   <label>Username</label>
@@ -39,7 +49,8 @@
 <p id="test">This is a <b>paragraph</b></p>
 <button id="btn5" class="btn btn-info"> Show text</button>
 <button id="btn4" class="btn btn-info"> Show html</button>
-
+<p><a href = "https://www.google.com" id = "link">link to google</a></p>
+<button id="btn6" class="btn btn-secondary"> Show address</button> 
   <script>
     // jQuery code
     $(document).ready(function() {
@@ -49,7 +60,19 @@
 $(this).hide();
 });
 
+$("#courses").change(function() {
+  var course = $(this).val();
 
+  if(course == "all") {
+    $("bus-1").show();
+    $("cp").show();
+
+  } else if (course == "bus") {
+    $("bus-1").show();
+  } else if(course == "computer") {
+    $("cp").show();
+  }
+})
 $("#btn3").click(function(){
 var username = $('#username').val();
 var show = $('#email').val();
@@ -76,7 +99,10 @@ alert("HTML: " + $("#test").html());
 $("input").blur(function(){
 $(this).css("background-color", "green");
 });
-    });
+$("#btn6").click(function() {
+  alert($("#link").attr("href"));
+});
+});
   </script>
 </body>
 </html>
