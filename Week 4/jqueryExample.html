@@ -48,12 +48,25 @@
       $("p").click(function(){
 $(this).hide();
 });
-$("#btn3").click(function(){
+
+
+/*$("#btn3").click(function(){
 var username = $('#username').val();
 var show = $('#email').val();
 $('#showvalue').html(username);
 $('#email').val(username);
+});*/
+
+
+
+$("#btn3").click(function(){
+  alert("Value: " + $("#username").val());
 });
+
+
+
+
+
 $("#flip").click(function(){
     $("#panel").slideDown("slow");
   });
