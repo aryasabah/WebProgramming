@@ -43,3 +43,22 @@
 
 </body>
 </html>
+
+<?php
+    if(4_SERVER["REQUEST_METHOD"] == "POST") {
+      $name = $_POST('name');
+      $email = $_POST('email');
+      $gender = $_POST('gender');
+
+      $sql = "INSERT INTO student (name, email, gender) VALUES ('$name', '$email', '$gender');
+      if(mysqli_query($conn, $sql)) {
+        echo "Data added";
+        header("Location: view.php");
+      }
+      else {
+        echo "Error: ".$sql."<br>".mysqli_error($conn);
+      }
+    
+
+    }
+    ?>
