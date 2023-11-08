@@ -40,19 +40,19 @@
   <tbody>
     <?php
     include "connection.php";
-    $select = "SELECT * FROM info";
+    $select = "SELECT * FROM student";
     $result = mysqli_query($conn, $select);
     while($row = mysqli_fetch_assoc($result)) {
 
 ?>
     <tr>
-        <td><?php echo $row["Id"]; ?></td>
-        <td><?php echo $row["Name"]; ?></td>
-        <td><?php echo $row["Email"]; ?></td>
-        <td><?php echo $row["Gender"]; ?></td>
+        <td><?php echo $row["id"]; ?></td>
+        <td><?php echo $row["name"]; ?></td>
+        <td><?php echo $row["email"]; ?></td>
+        <td><?php echo $row["gender"]; ?></td>
         <td>
-            <a href="edit.php?id=<?php echo $row["Id"]; ?>" class="btn btn-success">Edit</a>
-            <a href="delete.php?id=<?php echo $row["Id"]; ?>" class="btn btn-danger">Delete</a>
+            <a href="edit.php?id=<?php echo $row["id"]; ?>" class="btn btn-success">Edit</a>
+            <a href="delete.php?id=<?php echo $row["id"]; ?>" class="btn btn-danger">Delete</a>
         </td>
     </tr>
     <?php

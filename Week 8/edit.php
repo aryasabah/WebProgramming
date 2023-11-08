@@ -9,12 +9,13 @@
 </head>
 <body>
     <?php
+    include "connection.php";
         $id = $_GET['id'];
 
         $select = "SELECT * FROM student WHERE id = $id";
 
         $result = mysqli_query($conn, $select);
-        while($ow = mysqli_fetch_assoc($result)) {
+        while($row = mysqli_fetch_assoc($result)) {
             $name_select = $row["name"];
             $email_select = $row["email"];
             $gender_select = $row["gender"];
@@ -42,3 +43,20 @@
             </div>
 </body>
 </html>
+
+<?php
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $gender = $_POST['gender'];
+    
+    $sql = "UPDATE student SET name='$name', email ='$email', gender='$gender'";
+    if(mysqli_query($conn, $sql)) {
+        echo "Date Added";
+        header("Location: view.php");
+
+    } else {
+        echo "Error: ".$sql."<br>".mysqli_error($conn);
+    }
+}
+?>

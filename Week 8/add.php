@@ -9,6 +9,9 @@
 
 </head>
 <body>
+  <?php
+  include "connection.php";
+  ?>
     <div class="container">
         <div class="row">
             <div class="col-2"></div>
@@ -37,23 +40,16 @@
             <div class="col-2"></div>
         </div>
     </div>
-  
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-</body>
-</html>
-
-<?php
-    if(4_SERVER["REQUEST_METHOD"] == "POST") {
+    <?php
+    if($_SERVER["REQUEST_METHOD"] == "POST") {
       $name = $_POST('name');
       $email = $_POST('email');
       $gender = $_POST('gender');
 
-      $sql = "INSERT INTO student (name, email, gender) VALUES ('$name', '$email', '$gender');
+      $sql = "INSERT INTO student (name, email, gender) VALUES ('$name', '$email', '$gender')";
       if(mysqli_query($conn, $sql)) {
         echo "Data added";
-        header("Location: view.php");
+        header("Location: index.php");
       }
       else {
         echo "Error: ".$sql."<br>".mysqli_error($conn);
@@ -62,3 +58,9 @@
 
     }
     ?>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
